@@ -68,7 +68,6 @@ Working with GitHub Copilot as my coding assistant was an exceptional experience
 
 This project is licensed under GPL-3.0-or-later.
 
-
 Executing the command `flameshot` without parameters will launch a running
 instance of the program in the background without taking actions.
 If your desktop environment provides tray area, a tray icon will also
@@ -78,45 +77,45 @@ Example commands:
 
 - Capture with GUI:
 
-    ```shell
-    flameshot gui
-    ```
+  ```shell
+  flameshot gui
+  ```
 
 - Capture with GUI with custom save path:
 
-    ```shell
-    flameshot gui -p ~/myStuff/captures
-    ```
+  ```shell
+  flameshot gui -p ~/myStuff/captures
+  ```
 
 - Capture with GUI after 2 seconds delay (can be useful to take screenshots of mouse hover tooltips, etc.):
 
-    ```shell
-    flameshot gui -d 2000
-    ```
+  ```shell
+  flameshot gui -d 2000
+  ```
 
 - Fullscreen capture with custom save path (no GUI) and delayed:
 
-    ```shell
-    flameshot full -p ~/myStuff/captures -d 5000
-    ```
+  ```shell
+  flameshot full -p ~/myStuff/captures -d 5000
+  ```
 
 - Fullscreen capture with custom save path copying to clipboard:
 
-    ```shell
-    flameshot full -c -p ~/myStuff/captures
-    ```
+  ```shell
+  flameshot full -c -p ~/myStuff/captures
+  ```
 
 - Capture the screen containing the mouse and print the image (bytes) in PNG format:
 
-    ```shell
-    flameshot screen -r
-    ```
+  ```shell
+  flameshot screen -r
+  ```
 
 - Capture the screen number 1 and copy it to the clipboard:
 
-    ```shell
-    flameshot screen -n 1 -c
-    ```
+  ```shell
+  flameshot screen -n 1 -c
+  ```
 
 In case of doubt choose the first or the second command as shortcut in your favorite desktop environment.
 
@@ -126,8 +125,8 @@ Check out the About window to see all available shortcuts in the graphical captu
 
 ### Usage on Windows
 
-On Windows, `flameshot.exe` will behave as expected for all supported command-line arguments, 
-but it will not output any text to the console. This is problematic if, for example, you are 
+On Windows, `flameshot.exe` will behave as expected for all supported command-line arguments,
+but it will not output any text to the console. This is problematic if, for example, you are
 running `flameshot.exe -h`.
 
 If you require console output, run `flameshot-cli.exe` instead. `flameshot-cli.exe` is a minimal wrapper around `flameshot.exe` that ensures all stdout is captured and output to the console.
@@ -138,21 +137,21 @@ You can use the graphical menu to configure Flameshot, but alternatively you can
 
 - Open the configuration menu:
 
-    ```shell
-    flameshot config
-    ```
+  ```shell
+  flameshot config
+  ```
 
 - Show the initial help message in the capture mode:
 
-    ```shell
-    flameshot config --showhelp true
-    ```
+  ```shell
+  flameshot config --showhelp true
+  ```
 
 - For more information about the available options use the help flag:
 
-    ```shell
-    flameshot config -h
-    ```
+  ```shell
+  flameshot config -h
+  ```
 
 ### Config file
 
@@ -170,39 +169,39 @@ so that the screenshots save in the right directory on your desired file system.
 
 These shortcuts are available in GUI mode:
 
-|  Keys                                                                     |  Description                                                   |
-|---                                                                        |---                                                             |
-| <kbd>P</kbd>                                          | Set the Pencil as paint tool |
-| <kbd>D</kbd>                                          | Set the Line as paint tool |
-| <kbd>A</kbd>                                          | Set the Arrow as paint tool |
-| <kbd>S</kbd>                                          | Set Selection as paint tool |
-| <kbd>R</kbd>                                          | Set the Rectangle as paint tool |
-| <kbd>C</kbd>                                          | Set the Circle as paint tool |
-| <kbd>M</kbd>                                          | Set the Marker as paint tool |
-| <kbd>T</kbd>                                          | Add text to your capture |
-| <kbd>B</kbd>                                          | Set Pixelate as the paint tool |
-| <kbd>←</kbd>, <kbd>↓</kbd>, <kbd>↑</kbd>, <kbd>→</kbd>                    | Move selection 1px                                             |
-| <kbd>Shift</kbd> + <kbd>←</kbd>, <kbd>↓</kbd>, <kbd>↑</kbd>, <kbd>→</kbd> | Resize selection 1px                                           |
-| <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>←</kbd>, <kbd>↓</kbd>, <kbd>↑</kbd>, <kbd>→</kbd> | Symmetrically resize selection 2px                                           |
-| <kbd>Esc</kbd>                                                            | Quit capture                                                   |
-| <kbd>Ctrl</kbd> + <kbd>M</kbd>                                            | Move the selection area                                              |
-| <kbd>Ctrl</kbd> + <kbd>C</kbd>                                            | Copy to clipboard                                              |
-| <kbd>Ctrl</kbd> + <kbd>S</kbd>                                            | Save selection as a file                                       |
-| <kbd>Ctrl</kbd> + <kbd>Z</kbd>                                            | Undo the last modification                                     |
-| <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Z</kbd>                                            | Redo the next modification                    |
-| <kbd>Ctrl</kbd> + <kbd>Q</kbd>                                            | Leave the capture screen                                         |
-| <kbd>Ctrl</kbd> + <kbd>O</kbd>                                            | Choose an app to open the capture                                |
-| <kbd>Ctrl</kbd> + <kbd>Return</kbd>                                            | Commit text in text area|
-| <kbd>Ctrl</kbd> + <kbd>Backspace</kbd>                                    | Cancel current selection                                       | 
-| <kbd>Return</kbd>                                             | Upload the selection to Imgur                                      |
-| <kbd>Spacebar</kbd>                                                       | Toggle visibility of sidebar with options of the selected tool, color picker for the drawing color and history menu |
-| <kbd>G</kbd>                                                       | Starts the color picker |
-| Right Click                                                               | Show the color wheel                                              |
-| Mouse Wheel                                                               | Change the tool's thickness                                    |
-| <kbd>Print screen</kbd>                                          | Capture Screen |
-| <kbd>Shift</kbd> + <kbd>Print</kbd>                                            | Screenshot History                                     |
-| <kbd>Ctrl</kbd> + drawing *line*, *arrow* or *marker*      | Drawing only horizontally, vertically or diagonally |
-| <kbd>Ctrl</kbd> + drawing *rectangle* or *circle*      | Keeping aspect ratio |
+| Keys                                                                                        | Description                                                                                                         |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| <kbd>P</kbd>                                                                                | Set the Pencil as paint tool                                                                                        |
+| <kbd>D</kbd>                                                                                | Set the Line as paint tool                                                                                          |
+| <kbd>A</kbd>                                                                                | Set the Arrow as paint tool                                                                                         |
+| <kbd>S</kbd>                                                                                | Set Selection as paint tool                                                                                         |
+| <kbd>R</kbd>                                                                                | Set the Rectangle as paint tool                                                                                     |
+| <kbd>C</kbd>                                                                                | Set the Circle as paint tool                                                                                        |
+| <kbd>M</kbd>                                                                                | Set the Marker as paint tool                                                                                        |
+| <kbd>T</kbd>                                                                                | Add text to your capture                                                                                            |
+| <kbd>B</kbd>                                                                                | Set Pixelate as the paint tool                                                                                      |
+| <kbd>←</kbd>, <kbd>↓</kbd>, <kbd>↑</kbd>, <kbd>→</kbd>                                      | Move selection 1px                                                                                                  |
+| <kbd>Shift</kbd> + <kbd>←</kbd>, <kbd>↓</kbd>, <kbd>↑</kbd>, <kbd>→</kbd>                   | Resize selection 1px                                                                                                |
+| <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>←</kbd>, <kbd>↓</kbd>, <kbd>↑</kbd>, <kbd>→</kbd> | Symmetrically resize selection 2px                                                                                  |
+| <kbd>Esc</kbd>                                                                              | Quit capture                                                                                                        |
+| <kbd>Ctrl</kbd> + <kbd>M</kbd>                                                              | Move the selection area                                                                                             |
+| <kbd>Ctrl</kbd> + <kbd>C</kbd>                                                              | Copy to clipboard                                                                                                   |
+| <kbd>Ctrl</kbd> + <kbd>S</kbd>                                                              | Save selection as a file                                                                                            |
+| <kbd>Ctrl</kbd> + <kbd>Z</kbd>                                                              | Undo the last modification                                                                                          |
+| <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Z</kbd>                                           | Redo the next modification                                                                                          |
+| <kbd>Ctrl</kbd> + <kbd>Q</kbd>                                                              | Leave the capture screen                                                                                            |
+| <kbd>Ctrl</kbd> + <kbd>O</kbd>                                                              | Choose an app to open the capture                                                                                   |
+| <kbd>Ctrl</kbd> + <kbd>Return</kbd>                                                         | Commit text in text area                                                                                            |
+| <kbd>Ctrl</kbd> + <kbd>Backspace</kbd>                                                      | Cancel current selection                                                                                            |
+| <kbd>Return</kbd>                                                                           | Upload the selection to Imgur                                                                                       |
+| <kbd>Spacebar</kbd>                                                                         | Toggle visibility of sidebar with options of the selected tool, color picker for the drawing color and history menu |
+| <kbd>G</kbd>                                                                                | Starts the color picker                                                                                             |
+| Right Click                                                                                 | Show the color wheel                                                                                                |
+| Mouse Wheel                                                                                 | Change the tool's thickness                                                                                         |
+| <kbd>Print screen</kbd>                                                                     | Capture Screen                                                                                                      |
+| <kbd>Shift</kbd> + <kbd>Print</kbd>                                                         | Screenshot History                                                                                                  |
+| <kbd>Ctrl</kbd> + drawing _line_, _arrow_ or _marker_                                       | Drawing only horizontally, vertically or diagonally                                                                 |
+| <kbd>Ctrl</kbd> + drawing _rectangle_ or _circle_                                           | Keeping aspect ratio                                                                                                |
 
 <kbd>Shift</kbd> + drag a handler of the selection area: mirror redimension in the opposite handler.
 
@@ -216,8 +215,8 @@ On Linux, Flameshot doesn't yet support <kbd>Prt Sc</kbd> out of the box, but wi
 
 To make configuration easier, there's a [file](docs/shortcuts-config/flameshot-shortcuts-kde.khotkeys) in the repository that more or less automates this process. This file will assign the following hotkeys by default:
 
-|  Keys                                                  |  Description                                                                       |
-|---                                                     |---                                                                                 |
+| Keys                                                   | Description                                                                        |
+| ------------------------------------------------------ | ---------------------------------------------------------------------------------- |
 | <kbd>Prt Sc</kbd>                                      | Start the Flameshot screenshot tool and take a screenshot                          |
 | <kbd>Ctrl</kbd> + <kbd>Prt Sc</kbd>                    | Wait for 3 seconds, then start the Flameshot screenshot tool and take a screenshot |
 | <kbd>Shift</kbd> + <kbd>Prt Sc</kbd>                   | Take a full-screen (all monitors) screenshot and save it                           |
@@ -229,17 +228,19 @@ Steps for using the configuration:
 
 1. The configuration file makes Flameshot automatically save screenshots to `~/Pictures/Screenshots` without opening the save dialog. Make sure that folder exists by running:
 
-    ```shell
-    mkdir -p ~/Pictures/Screenshots
-    ```
+   ```shell
+   mkdir -p ~/Pictures/Screenshots
+   ```
 
-    (If you don't like the default location, you can skip this step and configure your preferred directory later.)
+   (If you don't like the default location, you can skip this step and configure your preferred directory later.)
+
 2. Download the configuration file:
 
-    ```shell
-    cd ~/Desktop
-    wget https://raw.githubusercontent.com/flameshot-org/flameshot/master/docs/shortcuts-config/flameshot-shortcuts-kde.khotkeys
-    ```
+   ```shell
+   cd ~/Desktop
+   wget https://raw.githubusercontent.com/flameshot-org/flameshot/master/docs/shortcuts-config/flameshot-shortcuts-kde.khotkeys
+   ```
+
 3. Make sure you have the `khotkeys` installed using your package manager to enable custom shortcuts in KDE Plasma.
 4. Go to _System Settings_ → _Shortcuts_ → _Custom Shortcuts_.
 5. If an entry exists for Spectacle (the default KDE screenshot utility), you'll need to disable it because its shortcuts might conflict with Flameshot's. Do this by unchecking the _Spectacle_ entry.
@@ -248,20 +249,20 @@ Steps for using the configuration:
 8. If you want to change the default hotkeys, you can expand the entry, select the appropriate action and modify it as you wish; the process is pretty self-explanatory.
 9. If you installed Flameshot as a Flatpak, you will need to create a symlink to the command:
 
-    ```shell
-    ln -s /var/lib/flatpak/exports/bin/org.flameshot.Flameshot ~/.local/bin/flameshot
-    ```
+   ```shell
+   ln -s /var/lib/flatpak/exports/bin/org.flameshot.Flameshot ~/.local/bin/flameshot
+   ```
 
 #### On Ubuntu (Tested 22.04)
 
 To use Flameshot instead of the default screenshot application in Ubuntu we need to remove the binding on <kbd>Prt Sc</kbd> key, and then create a new binding for `/usr/bin/flameshot gui` ([adapted](https://askubuntu.com/posts/1039949/revisions) from [Pavel's answer on AskUbuntu](https://askubuntu.com/revisions/1036473/1)).
 
 1. Remove the binding on <kbd>Prt Sc</kbd>:
-  
+
    Ubuntu 22.04: Go to _Settings_ > _Keyboard_ > _View and Customise Shortcuts_ > _Screenshots_ > _Take a screenshot interactively_ and press `backspace`
 
 2. Add custom binding on <kbd>Prt Sc</kbd>:
-  
+
    Ubuntu 22.04: Go to _Settings_ > _Keyboard_ > _View and Customise Shortcuts_ > _Custom shortcuts_ and press the '+' button at the bottom.
 
 3. Name the command as you like it, e.g. `flameshot`. And in the command insert `/usr/bin/flameshot gui`.
@@ -276,10 +277,11 @@ Now every time you press <kbd>Prt Sc</kbd>, it will start the Flameshot GUI inst
 2. Switch to the tab `Application Shortcuts`
 3. Find the entry
 
-    ```text
-    Command                        Shortcut
-    xfce4-screenshooter -fd 1      Print
-    ```
+   ```text
+   Command                        Shortcut
+   xfce4-screenshooter -fd 1      Print
+   ```
+
 4. Replace `xfce4-screenshooter -fd 1` with `flameshot gui`
 
 Now every time you press <kbd>Prt Sc</kbd> it will start Flameshot GUI instead of the default application.
@@ -289,9 +291,10 @@ Now every time you press <kbd>Prt Sc</kbd> it will start Flameshot GUI instead o
 1. Edit your `~/.fluxbox/keys` file
 2. Add a new entry. `Print` is the key name, `flameshot gui` is the shell command; for more options see [the fluxbox wiki](https://sillyslux.github.io/fluxbox-wiki/en/wiki/Keyboard-Shortcuts/).
 
-    ```text
-    Print :Exec flameshot gui
-    ```
+   ```text
+   Print :Exec flameshot gui
+   ```
+
 3. Refresh Fluxbox configuration with **Reconfigure** option from the menu.
 
 ## Considerations
@@ -305,10 +308,10 @@ Now every time you press <kbd>Prt Sc</kbd> it will start Flameshot GUI instead o
 - Flameshot works best with a desktop environment that includes D-Bus. See this [article](https://wiki.archlinux.org/index.php/Flameshot#Troubleshooting) for tips on using Flameshot in a minimal window manager (dwm, i3, xmonad, etc).
 
 - In order to speed up the first launch of Flameshot (D-Bus init of the app can be slow), consider starting the application automatically on boot.
-    - Quick tip: If you don't have Flameshot to autostart at boot and you want to set keyboard shortcut, use the following as the command for the keybinding:
-    ```sh
-    ( flameshot &; ) && ( sleep 0.5s && flameshot gui )
-    ```
+  - Quick tip: If you don't have Flameshot to autostart at boot and you want to set keyboard shortcut, use the following as the command for the keybinding:
+  ```sh
+  ( flameshot &; ) && ( sleep 0.5s && flameshot gui )
+  ```
 
 ## Installation
 
@@ -323,9 +326,9 @@ Some prebuilt packages are provided on [the release page of the GitHub project r
 There are packages available in the repository of some Linux distributions:
 
 - [Arch](https://archlinux.org/packages/extra/x86_64/flameshot/): `pacman -S flameshot`
-  + Snapshot also available via AUR: [flameshot-git](https://aur.archlinux.org/packages/flameshot-git).
+  - Snapshot also available via AUR: [flameshot-git](https://aur.archlinux.org/packages/flameshot-git).
 - [Debian 10+](https://tracker.debian.org/pkg/flameshot): `apt install flameshot`
-  + Package for Debian 9 ("Stretch") also [available via stretch-backports](https://backports.debian.org/).
+  - Package for Debian 9 ("Stretch") also [available via stretch-backports](https://backports.debian.org/).
 - [Ubuntu](https://launchpad.net/ubuntu/+source/flameshot): `apt install flameshot`
 - [openSUSE](https://software.opensuse.org/package/flameshot): `zypper install flameshot`
 - [Void Linux](https://github.com/void-linux/void-packages/tree/master/srcpkgs/flameshot): `xbps-install flameshot`
@@ -345,13 +348,14 @@ There are packages available in the repository of some Linux distributions:
 **Note** that because of macOS security features, you may not be able to open flameshot when installed using brew.
 If you see the message `“flameshot” cannot be opened because the developer cannot be verified.` you will need to
 follow the steps below:
+
 1. Go to the Applications folder (Finder > Go > Applications, or <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>A</kbd>)
 1. Right-Click on "flameshot.app" and choose "Open" from the context menu
-2. In the dialog click "Open"
+1. In the dialog click "Open"
 
 On MacOs 15 and above, you will have to go to system settings -> privacy and security after doing this and click "Open Anyway" or you can open flameshot first time with the following command.
 
-```sudo xattr -rd com.apple.quarantine /Applications/flameshot.app```
+`sudo xattr -rd com.apple.quarantine /Applications/flameshot.app`
 
 After following all those steps above, `flameshot` will open without problems in your Mac.
 
@@ -370,7 +374,6 @@ After following all those steps above, `flameshot` will open without problems in
 
 **Note** that for the Flameshot icon to appear in your tray area, you should have a systray software installed. This is especially true for users who use minimal [window managers](https://wiki.archlinux.org/index.php/window_manager) such as [dwm](https://dwm.suckless.org/). In some [Desktop Environment](https://wiki.archlinux.org/index.php/Desktop_environment) installations (e.g Gnome), the systray might be missing and you can install an application or plugin (e.g [Gnome shell extension](https://extensions.gnome.org/extension/1503/tray-icons/)) to add the systray to your setup. It has been [reported](https://github.com/flameshot-org/flameshot/issues/1009#issuecomment-700781081)) that icon of some software, including Flameshot, does not show in [gnome-shell-extension-appindicator](https://github.com/ubuntu/gnome-shell-extension-appindicator).
 
-
 Alternatively, in case you don't want to have a systray, you can always call Flameshot from the terminal. See [Usage section](#usage).
 
 ## Compilation
@@ -386,14 +389,14 @@ Also you can open and build/debug the project in a C++ IDE. For example, in Qt C
 #### Compile-time
 
 - Qt >= 6.2.4 (available by default on Ubuntu Jammy)
-  + Development tools
+  - Development tools
 - GCC >= 11
 - CMake >= 3.22
 
 #### Run-time
 
 - Qt
-  + SVG
+  - SVG
 
 #### Optional
 
@@ -444,6 +447,7 @@ pacman -S openssl ca-certificates qt6-imageformats
 #### Nix
 
 Development Shell:
+
 ```shell
 # Without flakes:
 nix-shell
@@ -463,6 +467,7 @@ nix run
 #### macOS
 
 First of all you need to install [brew](https://brew.sh) and then install the dependencies
+
 ```shell
 brew install qt6
 brew install cmake
@@ -473,6 +478,7 @@ brew install cmake
 After installing all the dependencies, Flameshot can be built.
 
 #### Installation/build dir
+
 For the translations to be loaded correctly, the build process needs to be aware of where you want
 to install Flameshot.
 
@@ -504,6 +510,7 @@ When the `cmake --build` command has completed you can launch Flameshot from the
 Note that if you install from source, there _is no_ uninstaller, so consider installing to a custom directory.
 
 #### To install into a custom directory
+
 Make sure you are using cmake `>= 3.29` and build Flameshot with `$CMAKE_INSTALL_PREFIX` set to the
 installation directory. If this is not done, the translations won't be found when using a custom directory.
 Then, run the following:
@@ -517,6 +524,7 @@ cmake --install "$BUILD_DIR"
 ```
 
 #### To install to the default install directory
+
 ```bash
 # You may need to run this with privileges
 cmake --install "$BUILD_DIR"
@@ -555,6 +563,7 @@ If you want to contribute check the [CONTRIBUTING.md](docs/CONTRIBUTING.md)
 ## Acknowledgment
 
 Thanks to those who have shown interest in the early development process:
+
 - [lupoDharkael](https://github.com/lupoDharkael)
 - [Cosmo](https://github.com/philpem)
 - [XerTheSquirrel](https://github.com/XerTheSquirrel)
@@ -562,6 +571,7 @@ Thanks to those who have shown interest in the early development process:
 - ismatori
 
 Thanks to sponsors:
+
 - [Namecheap](https://www.namecheap.com/)
 - [JetBrains](https://www.jetbrains.com/)
 - [SignPath](https://signpath.io/)

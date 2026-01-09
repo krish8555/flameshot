@@ -9,6 +9,7 @@ Automatically detects objects in your screenshots so you can select them with on
 ### 1. Install ONNX Runtime
 
 **Linux:**
+
 ```bash
 wget https://github.com/microsoft/onnxruntime/releases/download/v1.16.3/onnxruntime-linux-x64-1.16.3.tgz
 tar -xzf onnxruntime-linux-x64-1.16.3.tgz
@@ -64,6 +65,7 @@ mlUseGPU=false
 ## What It Detects
 
 The model can detect 80 types of objects including:
+
 - People, animals, vehicles
 - Electronics (laptop, phone, keyboard, mouse)
 - Furniture (chair, table, couch)

@@ -1,11 +1,13 @@
 # Git Commands to Push Your Changes
 
 ## Step 1: Check Current Status
+
 ```bash
 git status
 ```
 
 ## Step 2: Add All Your Changes
+
 ```bash
 # Add all new and modified files
 git add .
@@ -24,6 +26,7 @@ git add README.md
 ```
 
 ## Step 3: Commit Your Changes
+
 ```bash
 git commit -m "feat: Add ML-based smart selection using YOLO object detection
 
@@ -39,6 +42,7 @@ git commit -m "feat: Add ML-based smart selection using YOLO object detection
 ## Step 4: Push to Your Private Repo
 
 ### If this is your first push to this branch:
+
 ```bash
 # Push to your private repo (assuming 'origin' is your repo)
 git push origin master
@@ -48,6 +52,7 @@ git push origin <your-branch-name>
 ```
 
 ### If you need to set up the remote:
+
 ```bash
 # Check current remote
 git remote -v
@@ -63,6 +68,7 @@ git push -u origin master
 ```
 
 ## Step 5: Verify the Push
+
 ```bash
 # Check that everything was pushed
 git log --oneline -5
@@ -71,6 +77,7 @@ git log --oneline -5
 ```
 
 ## Alternative: Push to a New Branch
+
 ```bash
 # Create and switch to a new branch
 git checkout -b ml-smart-selection
@@ -80,6 +87,7 @@ git push -u origin ml-smart-selection
 ```
 
 ## Quick One-Liner (if you're already set up)
+
 ```bash
 git add . && git commit -m "feat: Add ML-based smart selection" && git push origin master
 ```
@@ -89,6 +97,7 @@ git add . && git commit -m "feat: Add ML-based smart selection" && git push orig
 ## Troubleshooting
 
 ### If you get "failed to push some refs":
+
 ```bash
 # Pull first, then push
 git pull origin master --rebase
@@ -96,11 +105,13 @@ git push origin master
 ```
 
 ### If you need to force push (use carefully):
+
 ```bash
 git push origin master --force
 ```
 
 ### To see what will be pushed:
+
 ```bash
 git diff origin/master..HEAD
 ```

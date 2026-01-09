@@ -18,6 +18,7 @@ This feature adds intelligent area selection to Flameshot using machine learning
 ### ONNX Runtime Installation
 
 #### Linux (Ubuntu/Debian)
+
 ```bash
 # Install ONNX Runtime
 wget https://github.com/microsoft/onnxruntime/releases/download/v1.16.3/onnxruntime-linux-x64-1.16.3.tgz
@@ -28,6 +29,7 @@ sudo ldconfig
 ```
 
 #### macOS (Homebrew)
+
 ```bash
 # Install via Homebrew (if available) or download manually
 wget https://github.com/microsoft/onnxruntime/releases/download/v1.16.3/onnxruntime-osx-universal2-1.16.3.tgz
@@ -37,6 +39,7 @@ sudo cp -r onnxruntime-osx-universal2-1.16.3/lib/* /usr/local/lib/
 ```
 
 #### Windows
+
 ```powershell
 # Download ONNX Runtime from GitHub releases
 # Extract to C:\onnxruntime
@@ -130,11 +133,11 @@ The implementation supports YOLO models in ONNX format:
 
 ### Model Comparison
 
-| Model | Size | Speed (CPU) | Speed (GPU) | Best For |
-|-------|------|-------------|-------------|----------|
-| YOLOv8n | 6 MB | ~200ms | ~6ms | General use, fast response |
-| YOLOv8s | 22 MB | ~400ms | ~10ms | Better accuracy |
-| YOLOv8m | 50 MB | ~800ms | ~15ms | High accuracy required |
+| Model   | Size  | Speed (CPU) | Speed (GPU) | Best For                   |
+| ------- | ----- | ----------- | ----------- | -------------------------- |
+| YOLOv8n | 6 MB  | ~200ms      | ~6ms        | General use, fast response |
+| YOLOv8s | 22 MB | ~400ms      | ~10ms       | Better accuracy            |
+| YOLOv8m | 50 MB | ~800ms      | ~15ms       | High accuracy required     |
 
 ## Detected Object Classes
 

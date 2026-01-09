@@ -44,12 +44,14 @@ See [docs/ML-QuickStart.md](ML-QuickStart.md) for complete setup instructions.
 ### Runtime Dependencies
 
 When `ENABLE_ONNX_ML=ON`:
+
 - `libonnxruntime.so` (Linux) / `onnxruntime.dll` (Windows) must be in library path
 - YOLO ONNX model file (~6MB) must be available
 
 ### Optional: GPU Support
 
 For CUDA GPU acceleration:
+
 ```bash
 cmake .. -DENABLE_ONNX_ML=ON
 # Then set mlUseGPU=true in flameshot.ini
@@ -62,6 +64,7 @@ Requires NVIDIA GPU with CUDA support and ONNX Runtime built with CUDA provider.
 ## Updated Build Examples
 
 ### Linux with ML Support
+
 ```bash
 # Install ONNX Runtime first (see docs/ML-QuickStart.md)
 mkdir build && cd build
@@ -72,6 +75,7 @@ make -j$(nproc)
 ```
 
 ### Windows with ML Support
+
 ```powershell
 # Install ONNX Runtime first
 mkdir build
@@ -81,6 +85,7 @@ cmake --build . --config Release
 ```
 
 ### macOS with ML Support
+
 ```bash
 # Install ONNX Runtime first
 mkdir build && cd build
