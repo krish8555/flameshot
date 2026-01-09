@@ -79,6 +79,7 @@ option(USE_LAUNCHER_ABSOLUTE_PATH "Use absolute path for the desktop launcher" O
 option(USE_WAYLAND_CLIPBOARD "USE KF Gui Wayland Clipboard" OFF)
 option(DISABLE_UPDATE_CHECKER "Disable check for updates" OFF)
 option(ENABLE_IMGUR "Enable Imgur Uploader" OFF)
+option(ENABLE_ONNX_ML "Enable ML-based smart selection using ONNX Runtime" OFF)
 
 if(ENABLE_IMGUR)
   add_compile_definitions(ENABLE_IMGUR)
@@ -86,6 +87,10 @@ endif()
 
 if(DISABLE_UPDATE_CHECKER)
   add_compile_definitions(DISABLE_UPDATE_CHECKER)
+endif()
+
+if(ENABLE_ONNX_ML)
+  add_compile_definitions(ENABLE_ONNX_ML)
 endif()
 
 include(cmake/StandardProjectSettings.cmake)

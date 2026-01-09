@@ -76,6 +76,9 @@ CaptureWidget::CaptureWidget(const CaptureRequest& req,
   , m_existingObjectIsChanged(false)
   , m_startMove(false)
   , m_clipboardWorkaroundDone(false)
+  , m_objectDetector(nullptr)
+  , m_smartSelectionOverlay(nullptr)
+  , m_smartSelectionEnabled(false)
 
 {
     m_undoStack.setUndoLimit(ConfigHandler().undoLimit());
@@ -440,6 +443,112 @@ void CaptureWidget::startColorGrab()
         m_sidePanel->startColorGrab();
     }
 }
+
+void CaptureWidget::toggleSmartSelection()
+{
+#ifdef ENABLE_ONNX_ML
+    if (!m_objectDetector) {
+        // Initialize ML detector on first use
+        m_objectDetector = new OnnxDetector(this);
+        
+        // Try to load model from config or default location
+        QString modelPath = m_config.mlModelPath();
+        if (modelPath.isEmpty()) {
+            // Default model locations
+            QStringList defaultPaths = {
+                PathInfo::resourcesPath() + "/models/yolov8n.onnx",
+                PathInfo::resourcesPath() + "/models/yolov5s.onnx",
+                QDir::homePath() + "/.flameshot/models/yolov8n.onnx"
+            };
+            
+            for (const QString& path : defaultPaths) {
+                if (QFile::exists(path)) {
+                    modelPath = path;
+                    break;
+                }
+            }
+        }
+        
+        if (!modelPath.isEmpty()) {
+            m_objectDetector->initialize(modelPath);
+        } else {
+            m_notifierBox->showMessage(
+                tr("ML model not found. Please download a YOLO ONNX model "
+                   "and place it in: ") + 
+                PathInfo::resourcesPath() + "/models/");
+            return;
+        }
+    }
+    
+    if (!m_objectDetector->isInitialized()) {
+        m_notifierBox->showMessage(
+            tr("Smart selection unavailable: ML model not initialized"));
+        return;
+    }
+    
+    m_smartSelectionEnabled = !m_smartSelectionEnabled;
+    
+    if (m_smartSelectionEnabled) {
+        // Create overlay if it doesn't exist
+        if (!m_smartSelectionOverlay) {
+            m_smartSelectionOverlay = new SmartSelectionOverlay(this);
+            m_smartSelectionOverlay->setGeometry(rect());
+            connect(m_smartSelectionOverlay,
+                    &SmartSelectionOverlay::regionSelected,
+                    this,
+                    &CaptureWidget::onSmartSelectionRegionSelected);
+        }
+        
+        // Run object detection
+        m_notifierBox->showMessage(tr("Detecting objects..."));
+        QVector<DetectedObject> detections = 
+            m_objectDetector->detect(m_context.screenshot.toImage(), 0.3f);
+        
+        if (detections.isEmpty()) {
+            m_notifierBox->showMessage(
+                tr("No objects detected. Try lowering the confidence threshold."));
+            m_smartSelectionEnabled = false;
+        } else {
+            m_smartSelectionOverlay->setDetections(detections);
+            m_smartSelectionOverlay->show();
+            m_smartSelectionOverlay->raise();
+            m_smartSelectionOverlay->setFocus();
+            m_notifierBox->showMessage(
+                tr("Smart selection active - Click on a region or press ESC"));
+        }
+    } else {
+        // Disable smart selection
+        if (m_smartSelectionOverlay) {
+            m_smartSelectionOverlay->hide();
+            m_smartSelectionOverlay->clearDetections();
+        }
+        m_notifierBox->showMessage(tr("Smart selection disabled"));
+    }
+#else
+    m_notifierBox->showMessage(
+        tr("Smart selection unavailable: Flameshot was built without ML support"));
+#endif
+}
+
+void CaptureWidget::onSmartSelectionRegionSelected(const QRect& region)
+{
+    // Apply the selected region to the capture selection
+    if (m_selection) {
+        m_selection->setGeometry(region);
+        m_context.selection = region;
+        updateSizeIndicator();
+        update();
+    }
+    
+    // Hide the overlay after selection
+    if (m_smartSelectionOverlay) {
+        m_smartSelectionOverlay->hide();
+        m_smartSelectionEnabled = false;
+    }
+    
+    m_notifierBox->showMessage(tr("Region selected"));
+}
+
 
 void CaptureWidget::showxywh()
 {
@@ -1646,6 +1755,10 @@ void CaptureWidget::initShortcuts()
     newShortcut(QKeySequence(ConfigHandler().shortcut("TYPE_GRAB_COLOR")),
                 this,
                 SLOT(startColorGrab()));
+
+    newShortcut(QKeySequence(Qt::Key_S | Qt::CTRL),
+                this,
+                SLOT(toggleSmartSelection()));
 
     newShortcut(QKeySequence(ConfigHandler().shortcut("TYPE_RESIZE_LEFT")),
                 m_selection,

@@ -20,6 +20,9 @@
 #include "src/utils/confighandler.h"
 #include "src/widgets/capture/magnifierwidget.h"
 #include "src/widgets/capture/selectionwidget.h"
+#include "src/widgets/capture/smartselectionoverlay.h"
+#include "src/ml/objectdetector.h"
+#include "src/ml/onnxdetector.h"
 #include <QMessageBox>
 #include <QPointer>
 #include <QTimer>
@@ -93,6 +96,8 @@ private slots:
     void onGridSizeChanged(int size);
 
     void startColorGrab();
+    void toggleSmartSelection();
+    void onSmartSelectionRegionSelected(const QRect& region);
 
 public:
     void removeToolObject(int index = -1);
@@ -205,6 +210,11 @@ private:
     SelectionWidget* m_selection;
     MagnifierWidget* m_magnifier;
     QString m_helpMessage;
+
+    // Smart selection members
+    ObjectDetector* m_objectDetector;
+    SmartSelectionOverlay* m_smartSelectionOverlay;
+    bool m_smartSelectionEnabled;
 
     SelectionWidget::SideType m_mouseOverHandle;
 

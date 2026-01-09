@@ -113,6 +113,12 @@ add_subdirectory(utils)
 add_subdirectory(widgets)
 add_subdirectory(tools)
 
+# ML support (optional)
+if(ENABLE_ONNX_ML)
+    add_subdirectory(ml)
+endif()
+
+
 
 set(FLAMESHOT_TS_FILES
       ${CMAKE_SOURCE_DIR}/data/translations/Internationalization_bg.ts
@@ -252,6 +258,11 @@ endif()
 if (USE_WAYLAND_CLIPBOARD)
   target_compile_definitions(flameshot PRIVATE USE_WAYLAND_CLIPBOARD=1)
   target_link_libraries(flameshot KF6::GuiAddons)
+endif()
+
+# Link ML library if enabled
+if(ENABLE_ONNX_ML)
+  target_link_libraries(flameshot flameshot_ml)
 endif()
 
 if (APPLE)

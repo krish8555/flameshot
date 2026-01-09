@@ -142,6 +142,11 @@ public:
                          showSelectionGeometryHideTime,
                          int)
 
+    // ML-based smart selection settings
+    CONFIG_GETTER_SETTER(mlModelPath, setMlModelPath, QString)
+    CONFIG_GETTER_SETTER(mlConfidenceThreshold, setMlConfidenceThreshold, float)
+    CONFIG_GETTER_SETTER(mlUseGPU, setMlUseGPU, bool)
+
     // SPECIAL CASES
     bool startupLaunch();
     void setStartupLaunch(const bool);

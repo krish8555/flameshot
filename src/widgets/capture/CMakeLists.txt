@@ -11,7 +11,8 @@ target_sources(
         selectionwidget.h
         magnifierwidget.h
         notifierbox.h
-        modificationcommand.h)
+        modificationcommand.h
+        smartselectionoverlay.h)
 
 target_sources(
         flameshot
@@ -25,4 +26,5 @@ target_sources(
         notifierbox.cpp
         selectionwidget.cpp
         magnifierwidget.cpp
-        modificationcommand.cpp)
+        modificationcommand.cpp
+        smartselectionoverlay.cpp)
